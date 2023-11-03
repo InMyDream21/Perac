@@ -28,28 +28,28 @@
                 android:fontFamily="@font/poppins"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
-            
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
                 android:layout_marginLeft="24dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginRight="24dp"
-                android:text="Email"
                 android:fontFamily="@font/poppins"
-                android:textSize="14dp" />
+                android:text="Email"
+                android:textSize="14dp"
+                tools:ignore="TextSizeCheck" />
 
             <EditText
                 android:layout_width="360dp"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="24dp"
                 android:background="@drawable/border"
-                android:padding="8dp"
+                android:drawablePadding="8dp"
                 android:hint="Enter Email"
-                android:drawablePadding="8dp" />
-            
+                android:padding="8dp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
