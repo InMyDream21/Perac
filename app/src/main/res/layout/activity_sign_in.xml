@@ -25,9 +25,34 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:text="Sign In to Your Account"
-                android:fontFamily="@font/poppins"
+                android:fontFamily="@font/poppinsbold"
                 android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="24dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="Email"
+                android:textSize="14dp"
+                tools:ignore="TextSizeCheck" />
+
+            <EditText
+                android:id="@+id/signin_email"
+                android:layout_width="360dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:paddingStart="16dp"
+                android:background="@drawable/border"
+                android:fontFamily="@font/poppins"
+                android:drawablePadding="8dp"
+                android:textSize="12sp"
+                android:hint="Enter Email"
+                android:padding="8dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -36,20 +61,58 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginRight="24dp"
                 android:fontFamily="@font/poppins"
-                android:text="Email"
+                android:text="Password"
                 android:textSize="14dp"
                 tools:ignore="TextSizeCheck" />
 
             <EditText
+                android:id="@+id/signin_pw"
                 android:layout_width="360dp"
                 android:layout_height="48dp"
                 android:layout_marginLeft="24dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginRight="24dp"
+                android:fontFamily="@font/poppins"
+                android:textSize="12sp"
+                android:paddingStart="16dp"
                 android:background="@drawable/border"
                 android:drawablePadding="8dp"
-                android:hint="Enter Email"
+                android:hint="Enter Password"
                 android:padding="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="Forgot Your Password? Reset Password"
+                android:textSize="12sp"
+                tools:ignore="TextSizeCheck" />
+
+            <Button
+                android:layout_width="360dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginRight="24dp"
+                android:fontFamily="@font/poppinsbold"
+                android:background="@drawable/custom_button"
+                android:text="Sign In"
+                android:textColor="@color/white"
+                app:cornerRadius="20dp"
+                android:textSize="16dp"/>
+
+            <TextView
+                android:id="@+id/signupRedirectText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:text="Don't Have Account? Sign Up"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/main"
+                android:textSize="14sp" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
