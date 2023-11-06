@@ -41,7 +41,7 @@ public class MenuData {
             "Rp25.000,-"
     };
 
-    static ArrayList<Menu> getListData(){
+    public static ArrayList<Menu> getListData(){
         ArrayList<Menu> list = new ArrayList<>();
         for(int position = 0; position < menuTitle.length; position++){
             Menu menu = new Menu();

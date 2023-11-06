@@ -41,10 +41,17 @@
             app:layout_constraintTop_toBottomOf="@id/tv_welcome"/>
 
         <include
+            android:id="@+id/offer_card"
             layout="@layout/home_offer_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/et_search" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/menu_list_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/offer_card"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

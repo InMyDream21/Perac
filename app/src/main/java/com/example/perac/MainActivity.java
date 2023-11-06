@@ -21,14 +21,4 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         binding.bottomNavigationView.setBackground(null);
     }
-
-    // Fungsi Untuk Melakukan Perpindahan Fragment Bottom Navbar
-    private void replaceFragment(Fragment fragment){
-        FragmentManager mFragmentManager = getSupportFragmentManager();
-        FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
-        mFragmentTransaction.replace(R.id.frame_layout, fragment);
-        mFragmentTransaction.addToBackStack(null);
-        mFragmentTransaction.commit();
-    }
-
 }
