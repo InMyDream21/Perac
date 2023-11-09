@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Perac"
         tools:targetApi="31">
         <activity
+            android:name=".activities.ItemInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
@@ -21,7 +24,6 @@
         <activity
             android:name=".SignIn"
             android:exported="false" />
-
         <activity
             android:name=".activities.HomepageActivity"
             android:exported="false" />
@@ -34,7 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <activity android:name=".sign" />-->
     </application>
 
 </manifest>
