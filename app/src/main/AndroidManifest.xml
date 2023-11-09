@@ -20,6 +20,10 @@
             android:exported="false" />
         <activity
             android:name=".AccountActivity"
+            android:name=".SignUp"
+            android:exported="false" />
+        <activity
+            android:name=".SignIn"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -30,6 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".sign"></activity>
     </application>
 
 </manifest>
