@@ -96,24 +96,64 @@
                 android:layout_marginTop="60dp"
                 android:layout_marginRight="24dp"
                 android:fontFamily="@font/poppinsbold"
-
+                android:id="@+id/btn_sign_in"
                 android:text="Sign In"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/main"
                 app:cornerRadius="20dp"
                 android:textSize="16dp"/>
 
-            <TextView
-                android:id="@+id/signupRedirectText"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                >
 
-                android:text="Don't Have Account? Sign Up"
-                android:fontFamily="@font/poppins"
-                android:textColor="@color/main"
-                android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/signupRedirectText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+
+
+                    android:text="Don't Have Account?"
+                    android:textColor="@color/main"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.62"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.56" />
+
+                <FrameLayout
+                    android:id="@+id/fl_sign_up"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.53"
+                    app:layout_constraintStart_toEndOf="@+id/signupRedirectText"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/main"
+                        android:textStyle="bold"
+                        android:text="Sign Up" />
+                </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
         </LinearLayout>
     </LinearLayout>
