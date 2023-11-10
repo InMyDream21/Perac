@@ -44,7 +44,28 @@ public class HomepageActivity extends AppCompatActivity {
 
     private void showRecyclerGrid(){
         rvMenu.setLayoutManager(new GridLayoutManager(this, 2));
-        MenuListAdapter gridHeroAdapter = new MenuListAdapter(list);
-        rvMenu.setAdapter(gridHeroAdapter);
+        MenuListAdapter menuListAdapter = new MenuListAdapter(list);
+        rvMenu.setAdapter(menuListAdapter);
+
+        menuListAdapter.setOnItemClickCallback(new MenuListAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(Menu menu) {
+                goToItemInfo(menu);
+            }
+        });
+    }
+
+    private void goToItemInfo(Menu menu) {
+        Menu mMenu = new Menu();
+        mMenu.setTitle(menu.getTitle());
+        mMenu.setCalorie(menu.getCalorie());
+        mMenu.setDetail(menu.getDetail());
+        mMenu.setPhoto(menu.getPhoto());
+        mMenu.setPrice(menu.getPrice());
+        mMenu.setRating(menu.getRating() + "/5.0");
+
+        Intent intent = new Intent(getApplicationContext(), ItemInfoActivity.class);
+        intent.putExtra(ItemInfoActivity.EXTRA_PERSON, mMenu);
+        startActivity(intent);
     }
 }

@@ -41,6 +41,9 @@ public class MenuData {
             "Rp25.000,-"
     };
 
+    private static String detail = "lorem ipsum dolor gw pusing anjir";
+    private static String rating = "4.8";
+
     public static ArrayList<Menu> getListData(){
         ArrayList<Menu> list = new ArrayList<>();
         for(int position = 0; position < menuTitle.length; position++){
@@ -49,6 +52,8 @@ public class MenuData {
             menu.setCalorie(menuCalorie[position]);
             menu.setTitle(menuTitle[position]);
             menu.setPhoto(menuPhoto[position]);
+            menu.setDetail(detail);
+            menu.setRating(rating);
             list.add(menu);
         }
         return list;
