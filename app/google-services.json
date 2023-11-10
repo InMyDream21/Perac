@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "457911936006",
+    "project_id": "perac-1a084",
+    "storage_bucket": "perac-1a084.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457911936006:android:0adc62561611a78f9b8f87",
+        "android_client_info": {
+          "package_name": "com.example.perac"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAawktVfwNnwI5ljGjn1rKV5Z2v0fni4fI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
