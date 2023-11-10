@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.perac.activities.HomepageActivity;
+import com.example.perac.activities.MenuListActivity;
 
 public class SignIn extends AppCompatActivity implements View.OnClickListener {
 
@@ -26,7 +27,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_sign_in){
-            Intent goMain = new Intent(SignIn.this, HomepageActivity.class);
+            Intent goMain = new Intent(SignIn.this, MainActivity.class);
             startActivity(goMain);
         }
     }

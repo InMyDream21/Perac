@@ -9,7 +9,7 @@ import android.os.Handler;
 import com.example.perac.activities.HomepageActivity;
 
 public class SplashScreen extends AppCompatActivity {
-    private int waktu_loading = 8000;
+    private int waktu_loading = 1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
