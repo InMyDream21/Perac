@@ -7,9 +7,18 @@ public class Menu implements Parcelable {
     private int photo;
     private String calorie;
     private String title;
-    private String price;
+    private int price;
     private String detail;
     private String rating;
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getRating() {
         return rating;
@@ -51,11 +60,11 @@ public class Menu implements Parcelable {
         this.title = title;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -70,18 +79,20 @@ public class Menu implements Parcelable {
         dest.writeInt(this.photo);
         dest.writeString(this.calorie);
         dest.writeString(this.title);
-        dest.writeString(this.price);
+        dest.writeInt(this.price);
         dest.writeString(this.detail);
         dest.writeString(this.rating);
+        dest.writeString(this.id);
     }
 
     public void readFromParcel(Parcel source) {
         this.photo = source.readInt();
         this.calorie = source.readString();
         this.title = source.readString();
-        this.price = source.readString();
+        this.price = source.readInt();
         this.detail = source.readString();
         this.rating = source.readString();
+        this.id = source.readString();
     }
 
     public Menu() {
@@ -91,9 +102,10 @@ public class Menu implements Parcelable {
         this.photo = in.readInt();
         this.calorie = in.readString();
         this.title = in.readString();
-        this.price = in.readString();
+        this.price = in.readInt();
         this.detail = in.readString();
         this.rating = in.readString();
+        this.id = in.readString();
     }
 
     public static final Creator<Menu> CREATOR = new Creator<Menu>() {

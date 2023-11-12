@@ -57,6 +57,7 @@ public class HomepageActivity extends AppCompatActivity {
 
     private void goToItemInfo(Menu menu) {
         Menu mMenu = new Menu();
+        mMenu.setId(menu.getId());
         mMenu.setTitle(menu.getTitle());
         mMenu.setCalorie(menu.getCalorie());
         mMenu.setDetail(menu.getDetail());

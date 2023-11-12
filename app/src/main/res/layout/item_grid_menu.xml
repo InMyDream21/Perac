@@ -57,6 +57,7 @@
             android:id="@+id/menu_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Rp30.000,-"
             android:textColor="#253E3F"
             android:textStyle="bold"

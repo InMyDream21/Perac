@@ -5,6 +5,14 @@ import com.example.perac.R;
 import java.util.ArrayList;
 
 public class MenuData {
+    private static String[] menuId = {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+    };
     private static int[] menuPhoto = {
             R.drawable.chocolate_milk,
             R.drawable.coffee_machiato,
@@ -32,13 +40,13 @@ public class MenuData {
             "250 Cal"
     };
 
-    private static String[] menuPrice = {
-            "Rp40.000,-",
-            "Rp30.000,-",
-            "Rp35.000,-",
-            "Rp40.000,-",
-            "Rp40.000,-",
-            "Rp25.000,-"
+    private static int[] menuPrice = {
+            40000,
+            30000,
+            35000,
+            40000,
+            40000,
+            25000
     };
 
     private static String detail = "lorem ipsum dolor gw pusing anjir";
@@ -48,6 +56,7 @@ public class MenuData {
         ArrayList<Menu> list = new ArrayList<>();
         for(int position = 0; position < menuTitle.length; position++){
             Menu menu = new Menu();
+            menu.setId(menuId[position]);
             menu.setPrice(menuPrice[position]);
             menu.setCalorie(menuCalorie[position]);
             menu.setTitle(menuTitle[position]);

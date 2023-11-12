@@ -14,7 +14,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.perac.R;
 import com.example.perac.models.Menu;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.GridViewHolder>{
     private ArrayList<Menu> listMenu;
@@ -43,7 +45,10 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.GridVi
                 .into(holder.imgPhoto);
         holder.menuTitle.setText(menu.getTitle());
         holder.menuCal.setText(menu.getCalorie());
-        holder.menuPrice.setText(menu.getPrice());
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        String harga = formatRupiah.format(menu.getPrice());
+        holder.menuPrice.setText(harga);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
