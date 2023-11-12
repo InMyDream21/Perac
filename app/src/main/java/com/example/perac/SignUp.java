@@ -14,11 +14,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.perac.activities.HomepageActivity;
+import com.example.perac.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
     EditText edtEmail, edtName, edtPassword;
@@ -26,6 +29,7 @@ public class SignUp extends AppCompatActivity {
     TextView signInRedirect;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
+    DatabaseReference reference;
 
     @Override
     public void onStart() {
@@ -38,13 +42,13 @@ public class SignUp extends AppCompatActivity {
             finish();
         }
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         getSupportActionBar().hide();
 
+        reference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         edtEmail = findViewById(R.id.signup_email);
         edtName = findViewById(R.id.signup_name);
@@ -70,6 +74,11 @@ public class SignUp extends AppCompatActivity {
                 password = String.valueOf(edtPassword.getText());
                 name = String.valueOf(edtName.getText());
 
+                if (TextUtils.isEmpty(name)) {
+                    Toast.makeText(SignUp.this, "Username cannot be empty!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(SignUp.this, "Email cannot be empty!", Toast.LENGTH_SHORT).show();
                     return;
@@ -86,6 +95,7 @@ public class SignUp extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
+                                    createNewUser(task.getResult().getUser(), name);
                                     Toast.makeText(SignUp.this, "Account Created.", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(getApplicationContext(), SignIn.class);
                                     startActivity(intent);
@@ -99,5 +109,13 @@ public class SignUp extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    private void createNewUser(FirebaseUser userFromRegistration, String username) {
+        String email = userFromRegistration.getEmail();
+        String userId = userFromRegistration.getUid();
+        User user = new User(username, email);
+
+        reference.child("users").child(userId).setValue(user);
     }
 }

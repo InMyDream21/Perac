@@ -52,6 +52,8 @@
                 android:drawablePadding="8dp"
                 android:textSize="12sp"
                 android:hint="Enter Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
                 android:padding="8dp" />
 
             <TextView
@@ -77,6 +79,8 @@
                 android:background="@drawable/border"
                 android:drawablePadding="8dp"
                 android:hint="Enter Password"
+                android:inputType="textPassword"
+                android:maxLines="1"
                 android:padding="8dp" />
 
             <TextView
@@ -159,9 +163,6 @@
                         android:textStyle="bold" />
                 </FrameLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
