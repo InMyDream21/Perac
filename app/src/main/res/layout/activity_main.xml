@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/bottom_nav"
+        android:backgroundTint="@color/main"
         android:layout_gravity="bottom"
         app:fabCradleMargin="5dp"
         app:fabCradleRoundedCornerRadius="20dp">

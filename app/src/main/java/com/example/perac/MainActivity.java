@@ -5,31 +5,47 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 import com.example.perac.databinding.ActivityMainBinding;
+import com.example.perac.fragment.AccountFragment;
+import com.example.perac.fragment.HistoryFragment;
+import com.example.perac.fragment.HomepageFragment;
+import com.example.perac.fragment.MenuListFragment;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-         new Handler().postDelayed(new Runnable(){
-            @Override
-            public void run() {
-                Intent sign = new Intent(MainActivity.this, SignIn.class);
-                startActivity(sign);
-                finish();
-            }
-        }, 5000);
-
-        // Pengaturan Untuk Bagian xml
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.bottomNavigationView.setBackground(null);
+
+        replaceFragment(new HomepageFragment());
+        
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.fr_home) {
+                replaceFragment(new HomepageFragment());
+            } else if (item.getItemId() == R.id.fr_menu) {
+                 replaceFragment(new MenuListFragment());
+            } else if (item.getItemId() == R.id.fr_transaction) {
+                 replaceFragment(new HistoryFragment());
+            } else if (item.getItemId() == R.id.fr_account) {
+                 replaceFragment(new AccountFragment());
+            }
+            return true;
+        });
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 }

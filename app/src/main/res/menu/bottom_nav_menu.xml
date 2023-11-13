@@ -12,7 +12,7 @@
         android:id="@+id/fr_qris"
         android:enabled="false"/>
 
-    <item android:title="Transaction"
+    <item android:title="History"
         android:icon="@drawable/ic_transaction"
         android:id="@+id/fr_transaction"/>
 

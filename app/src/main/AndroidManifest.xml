@@ -29,6 +29,9 @@
             android:name=".activities.HomepageActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.MenuListActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
