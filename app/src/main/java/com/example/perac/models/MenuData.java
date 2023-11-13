@@ -5,14 +5,6 @@ import com.example.perac.R;
 import java.util.ArrayList;
 
 public class MenuData {
-    private static String[] menuId = {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"
-    };
     private static int[] menuPhoto = {
             R.drawable.chocolate_milk,
             R.drawable.coffee_machiato,
@@ -56,7 +48,7 @@ public class MenuData {
         ArrayList<Menu> list = new ArrayList<>();
         for(int position = 0; position < menuTitle.length; position++){
             Menu menu = new Menu();
-            menu.setId(menuId[position]);
+            menu.setId(String.valueOf(position));
             menu.setPrice(menuPrice[position]);
             menu.setCalorie(menuCalorie[position]);
             menu.setTitle(menuTitle[position]);
