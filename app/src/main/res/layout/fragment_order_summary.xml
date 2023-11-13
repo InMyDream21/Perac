@@ -99,6 +99,7 @@
             android:layout_height="48dp"
             android:background="#253E3F"
             android:text="Proceed to Checkout"
+            android:layout_marginBottom="150dp"
             android:textStyle="bold" />
     </LinearLayout>
 
