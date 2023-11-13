@@ -12,6 +12,7 @@ import com.example.perac.fragment.AccountFragment;
 import com.example.perac.fragment.HistoryFragment;
 import com.example.perac.fragment.HomepageFragment;
 import com.example.perac.fragment.MenuListFragment;
+import com.example.perac.fragment.OrderSummaryFragment;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.fr_menu) {
                  replaceFragment(new MenuListFragment());
             } else if (item.getItemId() == R.id.fr_transaction) {
-                 replaceFragment(new HistoryFragment());
+                 replaceFragment(new OrderSummaryFragment());
             } else if (item.getItemId() == R.id.fr_account) {
                  replaceFragment(new AccountFragment());
             }

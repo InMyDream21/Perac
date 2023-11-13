@@ -81,7 +81,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                             progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-                                Intent goMain = new Intent(SignIn.this, HomepageActivity.class);
+                                Intent goMain = new Intent(SignIn.this, MainActivity.class);
                                 startActivity(goMain);
                                 finish();
                             } else {
