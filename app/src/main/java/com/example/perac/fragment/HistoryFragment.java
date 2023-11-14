@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.perac.R;
 import com.example.perac.AccountActivity;
@@ -33,8 +35,14 @@ public class HistoryFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_back_history) {
-            Intent backIntent = new Intent(requireActivity(), AccountActivity.class);
-            startActivity(backIntent);
+            replaceFragment(new AccountFragment());
         }
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 }

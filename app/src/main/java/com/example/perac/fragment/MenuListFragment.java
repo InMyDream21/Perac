@@ -1,5 +1,6 @@
 package com.example.perac.fragment;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.perac.R;
+import com.example.perac.activities.ItemInfoActivity;
 import com.example.perac.adapter.MenuListAdapter;
 import com.example.perac.models.Menu;
 import com.example.perac.models.MenuData;
@@ -52,7 +54,29 @@ public class MenuListFragment extends Fragment {
 
     private void showRecyclerGrid() {
         rvMenu.setLayoutManager(new GridLayoutManager(requireContext(), 2));
-        MenuListAdapter gridHeroAdapter = new MenuListAdapter(list);
-        rvMenu.setAdapter(gridHeroAdapter);
+        MenuListAdapter menuListAdapter = new MenuListAdapter(list);
+        rvMenu.setAdapter(menuListAdapter);
+
+        menuListAdapter.setOnItemClickCallback(new MenuListAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(Menu menu) {
+                goToItemInfo(menu);
+            }
+        });
+    }
+
+    private void goToItemInfo(Menu menu) {
+        Menu mMenu = new Menu();
+        mMenu.setId(menu.getId());
+        mMenu.setTitle(menu.getTitle());
+        mMenu.setCalorie(menu.getCalorie());
+        mMenu.setDetail(menu.getDetail());
+        mMenu.setPhoto(menu.getPhoto());
+        mMenu.setPrice(menu.getPrice());
+        mMenu.setRating(menu.getRating() + "/5.0");
+
+        Intent intent = new Intent(getActivity(), ItemInfoActivity.class);
+        intent.putExtra(ItemInfoActivity.EXTRA_PERSON, mMenu);
+        startActivity(intent);
     }
 }

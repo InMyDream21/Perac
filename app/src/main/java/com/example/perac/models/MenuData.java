@@ -59,4 +59,13 @@ public class MenuData {
         }
         return list;
     }
+
+    public static Menu getDataByIndex(int index) {
+        Menu menu = new Menu();
+        menu.setPrice(menuPrice[index]);
+        menu.setTitle(menuTitle[index]);
+        menu.setPhoto(menuPhoto[index]);
+
+        return menu;
+    }
 }

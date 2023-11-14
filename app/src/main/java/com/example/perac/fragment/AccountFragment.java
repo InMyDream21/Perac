@@ -11,6 +11,8 @@ import android.widget.FrameLayout;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.perac.R;
 import com.example.perac.SignIn;
@@ -52,8 +54,14 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_history_acc) {
-            Intent hIntent = new Intent(requireActivity(), history_layout.class);
-            startActivity(hIntent);
+            replaceFragment(new HistoryFragment());
         }
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.commit();
     }
 }
