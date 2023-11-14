@@ -48,7 +48,7 @@ public class OrderSummaryAdapter extends RecyclerView.Adapter<OrderSummaryAdapte
         CartItem item = dataList.get(position);
         Menu selectedMenu = MenuData.getDataByIndex(Integer.parseInt(item.getProductId()));
 
-        // Glide for image loading
+
         Glide.with(holder.itemView.getContext())
                 .load(selectedMenu.getPhoto())
                 .apply(new RequestOptions().override(350, 250))
