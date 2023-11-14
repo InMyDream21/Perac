@@ -54,6 +54,7 @@
                 />
         </LinearLayout>
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_order_summary"
             android:layout_width="match_parent"
@@ -94,13 +95,12 @@
 
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="Proceed to Checkout"
-            android:background="#253E3F"
-            android:textStyle="bold"
             android:id="@+id/btn_checkout_order_summary"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#253E3F"
+            android:text="Proceed to Checkout"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </ScrollView>

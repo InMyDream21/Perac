@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,30 +80,6 @@ public class OrderSummaryFragment extends Fragment implements View.OnClickListen
             }
         }
 
-        tvTotalHarga = rootView.findViewById(R.id.tv_order_summary_totalPrice);
-        updateTotalPrice();
-
-        Button btnCheckout = rootView.findViewById(R.id.btn_checkout_order_summary);
-        btnCheckout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cartItems.size() < 1) {
-                    Toast.makeText(getActivity(), "Cart Masih Kosong", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                String currentDate = getCurrentDate();
-                FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-                if (currentUser == null) {
-                    Toast.makeText(getActivity(), "Silahkan Login Terlebih Dahulu", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getActivity(), SignIn.class);
-                    startActivity(intent);
-                }
-                String userId = currentUser.getUid();
-                saveOrderToDatabase(cartItems, currentDate, userId);
-            }
-        });
-
         recyclerView = rootView.findViewById(R.id.rv_order_summary);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
@@ -112,7 +90,50 @@ public class OrderSummaryFragment extends Fragment implements View.OnClickListen
             }
         });
         recyclerView.setAdapter(adapter);
-        return rootView;
+
+        tvTotalHarga = rootView.findViewById(R.id.tv_order_summary_totalPrice);
+        updateTotalPrice();
+
+            if (adapter.getItemCount() == 0){
+                TextView noItemsYet = rootView.findViewById(R.id.tv_no_item_found);
+                ImageView noItemImg = rootView.findViewById(R.id.img_no_items);
+                LinearLayout llPrice = rootView.findViewById(R.id.ll_total_price);
+                noItemsYet.setVisibility(View.VISIBLE);
+                noItemImg.setVisibility(View.VISIBLE);
+                recyclerView.setVisibility(View.GONE);
+                llPrice.setVisibility(View.GONE);
+
+                Button btnCheckout = rootView.findViewById(R.id.btn_checkout_order_summary);
+                btnCheckout.setVisibility(View.GONE);
+
+            } else {
+
+                Button btnCheckout = rootView.findViewById(R.id.btn_checkout_order_summary);
+                btnCheckout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (cartItems.size() < 1) {
+                            Toast.makeText(getActivity(), "Cart Masih Kosong", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        String currentDate = getCurrentDate();
+                        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                        if (currentUser == null) {
+                            Toast.makeText(getActivity(), "Silahkan Login Terlebih Dahulu", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getActivity(), SignIn.class);
+                            startActivity(intent);
+                        }
+                        String userId = currentUser.getUid();
+                        saveOrderToDatabase(cartItems, currentDate, userId);
+                    }
+                });
+                return rootView;
+            }
+
+
+
+        return rootView ;
     }
 
     @Override
