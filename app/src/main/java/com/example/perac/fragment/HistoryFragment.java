@@ -55,15 +55,14 @@ public class HistoryFragment extends Fragment implements View.OnClickListener {
         parentDummyItemArrayList = new ArrayList<>();
         childDummyItemArrayList = new ArrayList<>();
 
-        for (int i = 0 ; i< orderIDParent.length; i++){
-            ParentDummyItem parentDummyItem = new ParentDummyItem(orderIDParent[i],dateParent[i],totalPriceParent[i]);
+        for (int i = 0; i < orderIDParent.length; i++) {
+            ParentDummyItem parentDummyItem = new ParentDummyItem(orderIDParent[i], dateParent[i], totalPriceParent[i]);
             parentDummyItemArrayList.add(parentDummyItem);
-            if (i < orderIDParent.length){
-                ChildDummyItem childDummyItem = new ChildDummyItem(itemNameChild[i],qtyItemChild[i] );
+                ChildDummyItem childDummyItem = new ChildDummyItem(itemNameChild[i], qtyItemChild[i]);
                 childDummyItemArrayList.add(childDummyItem);
-            }
 
         }
+
 
 
 

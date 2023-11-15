@@ -17,7 +17,7 @@ import java.util.List;
 
 public class HistoryItemListAdapter extends RecyclerView.Adapter<HistoryItemListAdapter.ViewHolder> {
      ArrayList<ChildDummyItem> childDummyItemArrayList;
-     Activity activity;
+
 
      public HistoryItemListAdapter(ArrayList<ChildDummyItem> childDummyItemArrayList){
 
@@ -35,8 +35,9 @@ public class HistoryItemListAdapter extends RecyclerView.Adapter<HistoryItemList
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
  ChildDummyItem childDummyItem = childDummyItemArrayList.get(position);
- holder.tvItemName.setText("Coffee Machiato");
- holder.tvItemQty.setText("x1");
+ holder.tvItemName.setText(childDummyItem.itemNameChild);
+ String newQty = String.valueOf(childDummyItem.itemQuantityChild);
+        holder.tvItemQty.setText("x" +newQty);
     }
 
     @Override

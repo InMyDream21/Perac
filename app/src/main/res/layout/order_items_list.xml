@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_marginBottom="10dp"
-    android:layout_height="match_parent">
+android:layout_marginBottom="5dp"
+    android:layout_height="wrap_content">
 
 
 
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_orderlist_items"
-        android:text="Coffee Machiato"
+        android:text="Coffee Macchiato"
         android:textColor="#253E3F"
         android:textStyle="bold"
         android:textSize="16sp"
