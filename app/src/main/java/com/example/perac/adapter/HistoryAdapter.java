@@ -5,88 +5,75 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.perac.R;
-import com.example.perac.models.CartItem;
-import com.example.perac.models.Menu;
-import com.example.perac.models.MenuData;
-
-import org.checkerframework.checker.nullness.qual.NonNull;
+import com.example.perac.fragment.HistoryFragment;
+import com.example.perac.models.ChildDummyItem;
+import com.example.perac.models.ParentDummyItem;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
-    private ArrayList<Menu> orderList;
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
+     ArrayList<ParentDummyItem> parentDummyItemArrayList;
+     ArrayList<ChildDummyItem> childDummyItemArrayList;
+     private HistoryFragment historyFragment;
 
-private RecyclerView HistoryItemRecyclerView;
-    public HistoryAdapter(ArrayList<Menu> orderList) {
-        this.orderList = orderList;
+    public HistoryAdapter(HistoryFragment activity, ArrayList<ParentDummyItem> parentDummyItemArrayList, ArrayList<ChildDummyItem> childDummyItemArrayList) {
+        this.historyFragment = activity;
+        this.parentDummyItemArrayList = parentDummyItemArrayList;
+        this.childDummyItemArrayList = childDummyItemArrayList;
     }
 
     @NonNull
     @Override
-    public HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_cards, parent, false);
-        return new HistoryViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.history_cards,parent,false);
+
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HistoryViewHolder holder, int position) {
-Menu order = orderList.get(position);
-        holder.orderIdTextView.setText("02382211");
-holder.totalTextView.setText("Rp150.000");
-holder.dateTextView.setText("28/08/23");
-//ArrayList<Menu> cartItems = order.getListData();
-//holder.historyItemListAdapter.setOrderItemText(cartItems);
-//holder.historyItemListAdapter.notifyDataSetChanged();
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    ParentDummyItem parentDummyItem = parentDummyItemArrayList.get(position);
+   holder.tvItemID.setText(parentDummyItem.orderIDParent);
+   holder.tvItemDate.setText(parentDummyItem.orderDateParent);
+   holder.tvItemTotal.setText(String.valueOf(parentDummyItem.orderTotalPriceParent));
 
 
+
+
+   HistoryItemListAdapter historyItemListAdapter = new HistoryItemListAdapter(childDummyItemArrayList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(historyFragment.getContext());
+        holder.nested_rv.setLayoutManager(linearLayoutManager);
+        holder.nested_rv.setAdapter(historyItemListAdapter);
     }
 
     @Override
     public int getItemCount() {
-        return orderList.size();
+        return parentDummyItemArrayList.size();
     }
 
-    public class HistoryViewHolder extends RecyclerView.ViewHolder {
-        private TextView orderIdTextView;
-        private TextView dateTextView;
-        private TextView totalTextView;
-        private  TextView tvOrderListItems;
-        private RecyclerView HistoryItemRecyclerView;
-        private HistoryItemListAdapter historyItemListAdapter;
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        RecyclerView nested_rv;
+        TextView tvItemID,tvItemDate,tvItemTotal;
 
-        public HistoryViewHolder(@NonNull View itemView) {
-            super(itemView);
-            orderIdTextView = itemView.findViewById(R.id.tv_order_id);
-            dateTextView = itemView.findViewById(R.id.tv_order_date_id);
-            totalTextView = itemView.findViewById(R.id.tv_order_total_id);
+         public ViewHolder(@NonNull View itemView) {
+             super(itemView);
+             tvItemID = itemView.findViewById(R.id.tv_order_id);
+             tvItemDate = itemView.findViewById(R.id.tv_order_date_id);
+             tvItemTotal = itemView.findViewById(R.id.tv_order_total_id);
+             nested_rv = itemView.findViewById(R.id.rv_order_item);
 
-             tvOrderListItems = itemView.findViewById(R.id.tv_orderlist_items);
-
-            HistoryItemRecyclerView = itemView.findViewById(R.id.rv_order_item);
-            historyItemListAdapter = new HistoryItemListAdapter(new ArrayList<>());
-            HistoryItemRecyclerView.setLayoutManager(new LinearLayoutManager(itemView.getContext()));
-            HistoryItemRecyclerView.setAdapter(historyItemListAdapter);
-
-
-        }
+         }
+     }
 
 
 
-        private String calculateTotal(List<CartItem> cartItems) {
-            int total = 0;
-            for (CartItem cartItem : cartItems) {
-                total += cartItem.getPrice() * cartItem.getQuantity();
-            }
-            return String.valueOf(total);
-        }
 
 
-    }
 
 
 }
