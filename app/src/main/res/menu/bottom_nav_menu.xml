@@ -8,10 +8,6 @@
         android:icon="@drawable/ic_menu"
         android:id="@+id/fr_menu"/>
 
-    <item android:title=""
-        android:id="@+id/fr_qris"
-        android:enabled="false"/>
-
     <item android:title="History"
         android:icon="@drawable/ic_transaction"
         android:id="@+id/fr_transaction"/>
