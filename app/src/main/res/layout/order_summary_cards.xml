@@ -11,6 +11,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginBottom="12dp"
+    android:layout_marginRight="20dp"
     android:padding="5dp">
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,14 +30,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Coffee Machiato"
-                android:textSize="20sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"
                 android:id="@+id/tv_order_summary_itemName"
                 android:textColor="#253E3F"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:fontFamily="@font/poppins"
+                android:textSize="16sp"
                 android:textColor="#253E3F"
                 android:id="@+id/tv_order_summary_itemPrice"
                 android:text="Rp50.000" />
@@ -42,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_order_summary_totalItems"
                 android:textColor="#253E3F"
-                android:textSize="20sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins"
                 android:textStyle="bold"
                 android:text="x1" />
         </LinearLayout>
@@ -66,8 +73,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Edit"
-
-            android:textStyle="bold"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="14sp"
             android:layout_marginRight="10dp"
             android:id="@+id/btn_edit_order"/>
 
@@ -76,7 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Delete"
-            android:textStyle="bold"
+            android:fontFamily="@font/poppinsbold"
+            android:textSize="14sp"
             android:id="@+id/btn_delete_order"/>
     </LinearLayout>
 

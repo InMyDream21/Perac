@@ -31,7 +31,7 @@
             android:text="300 Cal"
             android:textColor="#99000000"
             android:textAlignment="center"
-            android:textSize="18dp"/>
+            style="@style/textsm_medium"/>
 
         <TextView
             android:id="@+id/menu_title"
@@ -39,15 +39,13 @@
             android:layout_height="wrap_content"
             android:text="Coffee Machiato"
             android:textAlignment="center"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            style="@style/textlg_bold"
             android:textColor="@color/black"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="From"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
             android:textColor="@color/black"
             android:textSize="15dp"
@@ -60,8 +58,7 @@
             android:layout_marginBottom="8dp"
             android:text="Rp30.000,-"
             android:textColor="#253E3F"
-            android:textStyle="bold"
-            android:textSize="20dp"
+            style="@style/textlg_bold"
             android:textAlignment="center"/>
 
     </LinearLayout>

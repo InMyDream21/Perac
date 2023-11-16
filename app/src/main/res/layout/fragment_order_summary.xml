@@ -25,21 +25,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-
                 android:clickable="true"
-
                 android:contentDescription="@string/hide_bottom_view_on_scroll_behavior"
                 android:focusable="true"
                 android:minWidth="48dp"
-
                 android:minHeight="48dp">
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@drawable/backhistory" />
-
-
             </FrameLayout>
 
             <TextView
@@ -47,11 +42,9 @@
                 android:layout_height="wrap_content"
                 android:text="Order Summary"
                 android:layout_marginTop="5dp"
-                android:textSize="24dp"
+                style="@style/textxl_bold"
                 android:gravity="center"
-                android:layout_marginRight="50dp"
-                android:textStyle="bold"
-                />
+                android:layout_marginRight="50dp" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -73,19 +66,15 @@
                 android:layout_weight="1"
                 android:text="Total"
                 android:textColor="#253E3F"
-                android:textStyle="bold"
-                android:textSize="24dp"
-
-                />
+                style="@style/textxl_bold" />
 
             <TextView
                 android:id="@+id/tv_order_summary_totalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
                 android:layout_gravity="center_vertical"
                 android:textColor="#253E3F"
-                android:textStyle="bold"
+                style="@style/textxl_bold"
                 android:text="Rp150.000" />
 
 
@@ -94,13 +83,15 @@
 
 
         <Button
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:fontFamily="@font/poppinsbold"
             android:id="@+id/btn_checkout_order_summary"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="#253E3F"
             android:text="Proceed to Checkout"
-            android:layout_marginBottom="150dp"
-            android:textStyle="bold" />
+            android:textColor="@color/white"
+            android:backgroundTint="@color/main"
+            app:cornerRadius="10dp"
+            android:textSize="16dp" />
     </LinearLayout>
 
 </ScrollView>

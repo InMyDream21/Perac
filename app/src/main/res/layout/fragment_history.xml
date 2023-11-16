@@ -23,14 +23,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
-
                 android:clickable="true"
-
                 android:contentDescription="@string/hide_bottom_view_on_scroll_behavior"
                 android:focusable="true"
-                android:minWidth="48dp"
-
-                android:minHeight="48dp">
+                android:minWidth="24dp"
+                android:minHeight="24dp">
 
                 <ImageView
                     android:layout_width="40dp"
@@ -45,11 +42,9 @@
                 android:layout_height="wrap_content"
                 android:text="History"
                 android:layout_marginTop="5dp"
-                android:textSize="24dp"
+                style="@style/textxl_bold"
                 android:gravity="center"
-                android:layout_marginRight="40dp"
-                android:textStyle="bold"
-                />
+                android:layout_marginRight="40dp" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

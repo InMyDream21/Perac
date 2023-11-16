@@ -17,10 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hello, Fuji Keza"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp"
-            />
+            style="@style/textlg_bold"
+            android:layout_marginBottom="24dp" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -46,18 +44,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="History"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    style="@style/textsm_medium" />
             </LinearLayout>
         </FrameLayout>
-
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#D9D9D9"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="12dp"
             />
 
         <FrameLayout
@@ -66,7 +62,6 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
-
             android:minHeight="48dp">
 
             <LinearLayout
@@ -85,8 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Settings"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    style="@style/textsm_medium" />
             </LinearLayout>
         </FrameLayout>
 
@@ -96,7 +90,7 @@
             android:layout_height="1dp"
             android:background="#D9D9D9"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="12dp"
             />
         <FrameLayout
             android:layout_width="match_parent"
@@ -123,8 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Privacy Policy"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    style="@style/textsm_medium" />
             </LinearLayout>
         </FrameLayout>
 
@@ -134,7 +127,7 @@
             android:layout_height="1dp"
             android:background="#D9D9D9"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="12dp"
             />
         <FrameLayout
             android:layout_width="match_parent"
@@ -161,8 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="About PERAC"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    style="@style/textsm_medium" />
             </LinearLayout>
         </FrameLayout>
 
@@ -172,26 +164,27 @@
             android:layout_height="1dp"
             android:background="#D9D9D9"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="12dp"
             />
 
         <Button
             android:id="@+id/btn_sign_out_acc"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="#2A494A"
-            android:backgroundTint="#2A494A"
-            android:layout_marginBottom="25dp"
-            android:text="Sign Out" />
+            android:layout_width="360dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/main"
+            android:fontFamily="@font/poppinsbold"
+            android:text="Sign Out"
+            android:textColor="@color/white"
+            app:cornerRadius="10dp"
+            android:textSize="16dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Versi Aplikasi : v1.0"
             android:gravity="center"
-            android:textSize="12sp"/>
-
-
+            style="@style/text2xs_regular"/>
     </LinearLayout>
 
 

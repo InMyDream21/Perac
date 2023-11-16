@@ -6,5 +6,100 @@
         <item name="colorPrimaryDark">@color/main</item>
     </style>
 
+    <style name="textsm_regular">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="textsm_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="textsm_medium">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <style name="text2xs_regular">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="text2xs_medium">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="text2xs_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="textxs_regular">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="textxs_medium">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="textxs_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="textbase_regular">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="textbase_medium">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="textbase_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="textlg_regular">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="textlg_medium">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="textlg_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="textxl_regular">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="textxl_medium">
+        <item name="android:fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="textxl_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="text2xl_bold">
+        <item name="android:fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+    
     <style name="Theme.Perac" parent="Base.Theme.Perac" />
 </resources>
