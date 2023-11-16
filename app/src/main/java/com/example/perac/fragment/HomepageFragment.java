@@ -38,7 +38,7 @@ public class HomepageFragment extends Fragment {
         rvMenu = rootView.findViewById(R.id.menu_list_item);
         rvMenu.setHasFixedSize(true);
 
-        list.addAll(MenuData.getListData());
+        list.addAll(MenuData.getListData().subList(0, 4));
         showRecyclerGrid();
 
         return rootView;
