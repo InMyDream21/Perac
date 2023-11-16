@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 replaceFragment(new HomepageFragment());
             } else if (item.getItemId() == R.id.fr_menu) {
                  replaceFragment(new MenuListFragment());
-            } else if (item.getItemId() == R.id.fr_transaction) {
+            } else if (item.getItemId() == R.id.fr_cart) {
                  replaceFragment(new OrderSummaryFragment());
             } else if (item.getItemId() == R.id.fr_account) {
                  replaceFragment(new AccountFragment());

@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+android:layout_marginBottom="5dp"
+    android:layout_height="wrap_content">
 
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_orderlist_items"
+        android:text="Coffee Macchiato"
+        android:textColor="#253E3F"
+        android:textStyle="bold"
+        android:textSize="16sp"
+
+
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_orderlist_items"
-        android:text="x1 Coffee Machiato"
+        android:text="x1"
         android:textColor="#253E3F"
-        android:textSize="14sp"
-        android:layout_marginBottom="10dp"
-        />
+        android:textSize="16sp"
+        android:gravity="end"
+        android:id="@+id/tv_orderlist_qty"/>
 
 </LinearLayout>

@@ -51,7 +51,8 @@
             android:id="@+id/menu_list_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/offer_card"/>
+            app:layout_constraintTop_toBottomOf="@id/offer_card"
+            android:paddingBottom="50sp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

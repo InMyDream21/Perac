@@ -3,6 +3,9 @@ package com.example.perac.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Menu implements Parcelable {
     private int photo;
     private String calorie;
@@ -74,6 +77,8 @@ public class Menu implements Parcelable {
         return 0;
     }
 
+
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.photo);
@@ -106,6 +111,18 @@ public class Menu implements Parcelable {
         this.detail = in.readString();
         this.rating = in.readString();
         this.id = in.readString();
+    }
+
+    public List<ChildDummyItem> getListData() {
+        List<ChildDummyItem> childDummyItems = new ArrayList<>();
+
+        // Transform Menu object into InnerItem object
+        ChildDummyItem childDummyItem = new ChildDummyItem(this.title, 1); // Assuming each menu item has a quantity of 1
+        childDummyItems.add(childDummyItem);
+
+        // Add more items as needed
+
+        return childDummyItems;
     }
 
     public static final Creator<Menu> CREATOR = new Creator<Menu>() {
