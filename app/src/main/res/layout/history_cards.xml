@@ -25,7 +25,7 @@
                 android:layout_weight="1"
                 android:text="OD12342"
                 android:textColor="#253E3F"
-                style="@style/textlg_bold"
+                style="@style/textxs_bold"
                 android:id="@+id/tv_order_id" />
 
             <TextView

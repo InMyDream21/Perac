@@ -97,11 +97,7 @@
                 android:textColor="#253E3F"
                 style="@style/textxl_bold"
                 android:text="Rp150.000" />
-
-
-
         </LinearLayout>
-
 
         <Button
             android:layout_width="360dp"
@@ -111,6 +107,7 @@
             android:text="Proceed to Checkout"
             android:textColor="@color/white"
             android:backgroundTint="@color/main"
+            android:layout_marginBottom="100dp"
             app:cornerRadius="10dp"
             android:textSize="16dp" />
     </LinearLayout>
