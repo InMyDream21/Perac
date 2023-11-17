@@ -95,9 +95,13 @@ public class MenuData {
 
     public static Menu getDataByIndex(int index) {
         Menu menu = new Menu();
+        menu.setId(String.valueOf(index));
         menu.setPrice(menuPrice[index]);
+        menu.setCalorie(menuCalorie[index]);
         menu.setTitle(menuTitle[index]);
         menu.setPhoto(menuPhoto[index]);
+        menu.setDetail(menuDetail[index]);
+        menu.setRating(menuRating[index]);
 
         return menu;
     }
