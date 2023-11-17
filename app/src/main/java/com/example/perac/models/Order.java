@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    public String date, userId;
+    public String date, userId, orderId, total;
     public List<CartItem> cartItems;
 
     public Order() {
     }
 
-    public Order(String date, String userId, List<CartItem> cartItems) {
+    public Order(String date, String userId, List<CartItem> cartItems, String total) {
         this.date = date;
         this.userId = userId;
         this.cartItems = cartItems;
+        this.total = total;
     }
 
     public String getDate() {
@@ -40,16 +41,12 @@ public class Order {
         this.cartItems = cartItems;
     }
 
-    public List<ChildDummyItem> getListData() {
-        List<ChildDummyItem> childDummyItems = new ArrayList<>();
+    public String getOrderId() {
+        return orderId;
+    }
 
-        // Transform CartItem objects into InnerItem objects
-        for (CartItem cartItem : cartItems) {
-            ChildDummyItem childDummyItem = new ChildDummyItem(cartItem.getProductName(), cartItem.getQuantity());
-            childDummyItems.add(childDummyItem);
-        }
-
-        return childDummyItems;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 }
 

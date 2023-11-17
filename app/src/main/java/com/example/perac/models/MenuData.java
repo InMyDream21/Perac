@@ -102,6 +102,8 @@ public class MenuData {
         menu.setPhoto(menuPhoto[index]);
         menu.setDetail(menuDetail[index]);
         menu.setRating(menuRating[index]);
+        menu.setDetail(menuDetail[index]);
+        menu.setRating(menuRating[index]);
 
         return menu;
     }

@@ -86,7 +86,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener {
                                 finish();
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(SignIn.this, "Authentication failed.",
+                                Toast.makeText(SignIn.this, task.getException().getLocalizedMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
                         }

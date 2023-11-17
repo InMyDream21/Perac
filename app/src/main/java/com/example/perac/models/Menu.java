@@ -113,18 +113,6 @@ public class Menu implements Parcelable {
         this.id = in.readString();
     }
 
-    public List<ChildDummyItem> getListData() {
-        List<ChildDummyItem> childDummyItems = new ArrayList<>();
-
-        // Transform Menu object into InnerItem object
-        ChildDummyItem childDummyItem = new ChildDummyItem(this.title, 1); // Assuming each menu item has a quantity of 1
-        childDummyItems.add(childDummyItem);
-
-        // Add more items as needed
-
-        return childDummyItems;
-    }
-
     public static final Creator<Menu> CREATOR = new Creator<Menu>() {
         @Override
         public Menu createFromParcel(Parcel source) {

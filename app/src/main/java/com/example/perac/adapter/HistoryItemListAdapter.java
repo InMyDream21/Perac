@@ -1,6 +1,5 @@
 package com.example.perac.adapter;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.perac.R;
-import com.example.perac.models.ChildDummyItem;
+import com.example.perac.models.CartItem;
+import com.example.perac.models.Menu;
+import com.example.perac.models.MenuData;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryItemListAdapter extends RecyclerView.Adapter<HistoryItemListAdapter.ViewHolder> {
-     ArrayList<ChildDummyItem> childDummyItemArrayList;
+     List<CartItem> datalist;
 
 
-     public HistoryItemListAdapter(ArrayList<ChildDummyItem> childDummyItemArrayList){
-
-         this.childDummyItemArrayList = childDummyItemArrayList;
+     public HistoryItemListAdapter(List<CartItem> datalist){
+         this.datalist = datalist;
      }
 
     @NonNull
@@ -34,15 +33,15 @@ public class HistoryItemListAdapter extends RecyclerView.Adapter<HistoryItemList
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
- ChildDummyItem childDummyItem = childDummyItemArrayList.get(position);
- holder.tvItemName.setText(childDummyItem.itemNameChild);
- String newQty = String.valueOf(childDummyItem.itemQuantityChild);
-        holder.tvItemQty.setText("x" +newQty);
+        CartItem data = datalist.get(position);
+        Menu menu = MenuData.getDataByIndex(Integer.parseInt(data.getProductId()));
+        holder.tvItemName.setText(menu.getTitle());
+        holder.tvItemQty.setText("x" + data.getQuantity());
     }
 
     @Override
     public int getItemCount() {
-        return childDummyItemArrayList.size();
+        return datalist.size();
     }
 
     public class  ViewHolder extends RecyclerView.ViewHolder{
@@ -51,7 +50,6 @@ public class HistoryItemListAdapter extends RecyclerView.Adapter<HistoryItemList
             super(itemView);
             tvItemName = itemView.findViewById(R.id.tv_orderlist_items);
             tvItemQty = itemView.findViewById(R.id.tv_orderlist_qty);
-
         }
     }
 

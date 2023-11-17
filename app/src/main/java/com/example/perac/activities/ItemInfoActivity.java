@@ -1,8 +1,10 @@
 package com.example.perac.activities;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,7 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.perac.R;
-import com.example.perac.models.CartItem;
+import com.example.perac.adapter.OrderSummaryAdapter;
+import com.example.perac.fragment.OrderSummaryFragment;
 import com.example.perac.models.CartManager;
 import com.example.perac.models.Menu;
 
@@ -31,6 +34,13 @@ public class ItemInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_info);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.main)));
+            actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+            actionBar.setCustomView(R.layout.actionbar_top);
+            actionBar.hide();
+        }
 
         Menu mMenu = getIntent().getParcelableExtra(EXTRA_PERSON);
 
@@ -92,6 +102,8 @@ public class ItemInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 CartManager.addToCart(mMenu, count);
                 Toast.makeText(getApplicationContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
+                OrderSummaryAdapter orderSummaryAdapter = new OrderSummaryAdapter(getApplicationContext(), CartManager.getCartItems());
+                orderSummaryAdapter.notifyDataSetChanged();
                 finish();
             }
         });

@@ -11,20 +11,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.perac.R;
 import com.example.perac.fragment.HistoryFragment;
-import com.example.perac.models.ChildDummyItem;
-import com.example.perac.models.ParentDummyItem;
+import com.example.perac.models.Order;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
-     ArrayList<ParentDummyItem> parentDummyItemArrayList;
-     ArrayList<ChildDummyItem> childDummyItemArrayList;
+     private ArrayList<Order> dataList;
      private HistoryFragment historyFragment;
 
-    public HistoryAdapter(HistoryFragment activity, ArrayList<ParentDummyItem> parentDummyItemArrayList, ArrayList<ChildDummyItem> childDummyItemArrayList) {
+    public HistoryAdapter(HistoryFragment activity, ArrayList<Order> dataList) {
         this.historyFragment = activity;
-        this.parentDummyItemArrayList = parentDummyItemArrayList;
-        this.childDummyItemArrayList = childDummyItemArrayList;
+        this.dataList = dataList;
     }
 
     @NonNull
@@ -37,15 +36,15 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-    ParentDummyItem parentDummyItem = parentDummyItemArrayList.get(position);
-   holder.tvItemID.setText(parentDummyItem.orderIDParent);
-   holder.tvItemDate.setText(parentDummyItem.orderDateParent);
-   holder.tvItemTotal.setText(String.valueOf(parentDummyItem.orderTotalPriceParent));
+        Order order = dataList.get(position);
+        holder.tvItemID.setText(order.orderId);
+        holder.tvItemDate.setText(order.date);
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        String harga = formatRupiah.format(Integer.parseInt(order.total));
+        holder.tvItemTotal.setText(harga);
 
-
-
-
-   HistoryItemListAdapter historyItemListAdapter = new HistoryItemListAdapter(childDummyItemArrayList);
+        HistoryItemListAdapter historyItemListAdapter = new HistoryItemListAdapter(order.cartItems);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(historyFragment.getContext());
         holder.nested_rv.setLayoutManager(linearLayoutManager);
         holder.nested_rv.setAdapter(historyItemListAdapter);
@@ -53,9 +52,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return parentDummyItemArrayList.size();
+        return dataList.size();
     }
-
     public class ViewHolder extends RecyclerView.ViewHolder{
         RecyclerView nested_rv;
         TextView tvItemID,tvItemDate,tvItemTotal;
@@ -66,14 +64,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
              tvItemDate = itemView.findViewById(R.id.tv_order_date_id);
              tvItemTotal = itemView.findViewById(R.id.tv_order_total_id);
              nested_rv = itemView.findViewById(R.id.rv_order_item);
-
          }
      }
-
-
-
-
-
-
-
 }

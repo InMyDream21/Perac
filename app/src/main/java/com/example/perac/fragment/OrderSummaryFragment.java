@@ -83,7 +83,8 @@ public class OrderSummaryFragment extends Fragment implements View.OnClickListen
         recyclerView = rootView.findViewById(R.id.rv_order_summary);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        adapter = new OrderSummaryAdapter(cartItems, new OrderSummaryAdapter.CartListener() {
+        adapter = new OrderSummaryAdapter(getContext(), cartItems);
+        adapter.setCartListener(new OrderSummaryAdapter.CartListener() {
             @Override
             public void onCartItemRemoved() {
                 onItemRemoved();
@@ -105,9 +106,7 @@ public class OrderSummaryFragment extends Fragment implements View.OnClickListen
 
                 Button btnCheckout = rootView.findViewById(R.id.btn_checkout_order_summary);
                 btnCheckout.setVisibility(View.GONE);
-
             } else {
-
                 Button btnCheckout = rootView.findViewById(R.id.btn_checkout_order_summary);
                 btnCheckout.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -130,9 +129,6 @@ public class OrderSummaryFragment extends Fragment implements View.OnClickListen
                 });
                 return rootView;
             }
-
-
-
         return rootView ;
     }
 
@@ -147,7 +143,8 @@ public class OrderSummaryFragment extends Fragment implements View.OnClickListen
     private int totalHarga(List<CartItem> items) {
         int harga = 0;
         for (CartItem item: items) {
-            harga += item.getPrice() * item.getQuantity();
+            Menu currentMenu = MenuData.getDataByIndex(Integer.parseInt(item.getProductId()));
+            harga += currentMenu.getPrice() * item.getQuantity();
         }
         return harga;
     }
@@ -160,7 +157,7 @@ public class OrderSummaryFragment extends Fragment implements View.OnClickListen
     }
 
     private void saveOrderToDatabase(List<CartItem> cartItems, String currentDate, String userId) {
-        Order order = new Order(currentDate, userId, cartItems);
+        Order order = new Order(currentDate, userId, cartItems, String.valueOf(totalHarga(CartManager.getCartItems())));
 
         String orderId = databaseReference.push().getKey();
         databaseReference.child(orderId).setValue(order);

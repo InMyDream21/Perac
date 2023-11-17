@@ -1,5 +1,8 @@
 package com.example.perac.adapter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.perac.R;
+import com.example.perac.activities.ItemInfoActivity;
+import com.example.perac.fragment.HistoryFragment;
+import com.example.perac.fragment.OrderSummaryFragment;
 import com.example.perac.models.CartItem;
 import com.example.perac.models.CartManager;
 import com.example.perac.models.Menu;
@@ -28,9 +34,15 @@ public class OrderSummaryAdapter extends RecyclerView.Adapter<OrderSummaryAdapte
 
     private final List<CartItem> dataList;
     private CartListener cartListener;
-    public OrderSummaryAdapter(List<CartItem> dataList, CartListener listener) {
+
+    public void setCartListener(CartListener cartListener) {
+        this.cartListener = cartListener;
+    }
+
+    private Context context;
+    public OrderSummaryAdapter(Context context, List<CartItem> dataList) {
+        this.context = context;
         this.dataList = dataList;
-        this.cartListener = listener;
     }
     public interface CartListener{
         void onCartItemRemoved();
@@ -67,6 +79,18 @@ public class OrderSummaryAdapter extends RecyclerView.Adapter<OrderSummaryAdapte
                 int adapterPosition = holder.getAdapterPosition();
                 deleteItem(adapterPosition);
                 cartListener.onCartItemRemoved();
+            }
+        });
+
+        holder.btnEditOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int adapterPosition = holder.getAdapterPosition();
+                CartItem item = dataList.get(adapterPosition);
+                Menu menu = MenuData.getDataByIndex(Integer.parseInt(item.getProductId()));
+                Intent intent = new Intent(context, ItemInfoActivity.class);
+                intent.putExtra(ItemInfoActivity.EXTRA_PERSON, menu);
+                context.startActivity(intent);
             }
         });
     }

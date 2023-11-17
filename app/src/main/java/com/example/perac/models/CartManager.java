@@ -23,9 +23,9 @@ public class CartManager {
         }
 
         if (existingItem != null) {
-            existingItem.setQuantity(existingItem.getQuantity() + quantity);
+            existingItem.setQuantity(quantity);
         } else {
-            CartItem newItem = new CartItem(menu.getId(), menu.getTitle(), quantity, menu.getPrice());
+            CartItem newItem = new CartItem(menu.getId(), quantity);
             cartItems.add(newItem);
         }
     }
