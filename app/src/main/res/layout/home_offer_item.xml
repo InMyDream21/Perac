@@ -12,7 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:padding="8dp"
         android:background="@color/white">
 
@@ -20,6 +20,7 @@
             android:id="@+id/img_item_photo"
             android:layout_width="180dp"
             android:layout_height="200dp"
+            android:layout_marginTop="25dp"
             android:src="@drawable/offer1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sunday Funday"
+                android:text="Welcome to PERAC?"
                 android:textSize="30dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppinsbold"
@@ -45,19 +46,19 @@
                 android:id="@+id/offer_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Get 15% off \nfor any order"
+                android:text="Get Your Favorite \nCoffee Now!"
                 android:textColor="#253E3F"
                 style="@style/textlg_regular"
                 android:layout_marginVertical="8dp"/>
-            
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Claim"
-                app:cornerRadius="10dp"
-                style="@style/textxs_bold"
-                android:textColor="@color/white"
-                android:backgroundTint="#253E3F" />
+
+<!--            <Button-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Claim"-->
+<!--                app:cornerRadius="10dp"-->
+<!--                style="@style/textxs_bold"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:backgroundTint="#253E3F" />-->
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

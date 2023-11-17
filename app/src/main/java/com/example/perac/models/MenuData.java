@@ -20,7 +20,7 @@ public class MenuData {
             "Iced Chocolate",
             "Matcha Tea",
             "Oreo Chocolate",
-            "Palm Sugar Coffee"
+            "Palm Coffee"
     };
 
     private static String[] menuCalorie = {
@@ -41,8 +41,41 @@ public class MenuData {
             25000
     };
 
-    private static String detail = "lorem ipsum dolor gw pusing anjir";
-    private static String rating = "4.8";
+    private static String[] menuDetail = {
+            "A delightful beverage made by combining milk with rich " +
+                    "and creamy chocolate, creating a sweet and satisfying " +
+                    "drink.",
+
+            "An espresso-based coffee featuring a shot of espresso \"stained\" " +
+                    "or \"marked\" with a small amount of frothy milk, " +
+                    "offering a bold coffee flavor with a touch of creaminess.",
+
+            "A refreshing and indulgent cold beverage made with chocolate " +
+                    "syrup or melted chocolate, mixed with cold milk and ice, " +
+                    "perfect for those who crave a cool chocolatey treat.",
+
+            "A traditional Japanese green tea powder that is whisked into hot " +
+                    "water, producing a vibrant green tea with a unique, " +
+                    "earthy flavor and numerous health benefits.",
+
+            "A delightful fusion of crushed Oreo cookies with chocolate, " +
+                    "often blended into a milkshake or incorporated into other " +
+                    "desserts, providing a delicious combination of chocolate " +
+                    "and cookie crunch.",
+
+            "A specialty coffee sweetened with palm sugar, offering a " +
+                    "distinct and natural sweetness with a hint of caramel " +
+                    "flavor, providing a unique twist to the classic cup " +
+                    "of coffee."
+    };
+    private static String[] menuRating ={
+            "4.9",
+            "4.8",
+            "4.9",
+            "4.8",
+            "4,8",
+            "4,9"
+    };
 
     public static ArrayList<Menu> getListData(){
         ArrayList<Menu> list = new ArrayList<>();
@@ -53,8 +86,8 @@ public class MenuData {
             menu.setCalorie(menuCalorie[position]);
             menu.setTitle(menuTitle[position]);
             menu.setPhoto(menuPhoto[position]);
-            menu.setDetail(detail);
-            menu.setRating(rating);
+            menu.setDetail(menuDetail[position]);
+            menu.setRating(menuRating[position]);
             list.add(menu);
         }
         return list;
