@@ -25,6 +25,7 @@
                 android:layout_weight="1"
                 android:text="OD12342"
                 android:textColor="#253E3F"
+                android:layout_marginTop="10dp"
                 style="@style/textxs_bold"
                 android:id="@+id/tv_order_id" />
 
@@ -33,6 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/textxs_medium"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center_vertical"
                 android:text="01/08/22" />
         </LinearLayout>
@@ -56,6 +58,7 @@
                 android:layout_weight="1"
                 android:text="Total"
                 android:textColor="#253E3F"
+                android:layout_marginBottom="10dp"
                 style="@style/textlg_bold" />
 
             <TextView
@@ -64,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textColor="#253E3F"
+                android:layout_marginBottom="10dp"
                 style="@style/textlg_bold"
                 android:text="Rp150.000" />
         </LinearLayout>
