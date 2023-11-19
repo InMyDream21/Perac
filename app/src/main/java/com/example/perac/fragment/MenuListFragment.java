@@ -3,6 +3,7 @@ package com.example.perac.fragment;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,19 +102,28 @@ public class MenuListFragment extends Fragment {
         startActivity(intent);
     }
 
+    private long lastToastTime = 0;
+    private static final long TOAST_DELAY = 5000;
+
     private void filterList(String newText) {
         ArrayList<Menu> filteredList = new ArrayList<>();
         for (Menu i : list){
             if (i.getTitle().toLowerCase().contains(newText.toLowerCase())){
                 filteredList.add(i);
-
             }
         }
+
+        long currentTime = System.currentTimeMillis();
+
         if (filteredList.isEmpty()) {
-            Toast.makeText(requireContext(), "No data Found", Toast.LENGTH_SHORT).show();
+            if (currentTime - lastToastTime > TOAST_DELAY) {
+                Toast.makeText(requireContext(), "No data Found", Toast.LENGTH_SHORT).show();
+                lastToastTime = currentTime;
+            }
         } else {
             menuListAdapter.setFilteredList(filteredList);
         }
+
     }
 
 
