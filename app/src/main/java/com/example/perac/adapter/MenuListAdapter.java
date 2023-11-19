@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -20,9 +21,14 @@ import java.util.Locale;
 
 public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.GridViewHolder>{
     private ArrayList<Menu> listMenu;
+
     private OnItemClickCallback onItemClickCallback;
     public MenuListAdapter(ArrayList<Menu> list) {
         this.listMenu = list;
+    }
+    public void setFilteredList(ArrayList<Menu> filteredList){
+        this.listMenu = filteredList;
+        notifyDataSetChanged();
     }
 
     public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback){
@@ -50,6 +56,7 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.GridVi
         String harga = formatRupiah.format(menu.getPrice());
         holder.menuPrice.setText(harga);
 
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +79,7 @@ public class MenuListAdapter extends RecyclerView.Adapter<MenuListAdapter.GridVi
         TextView menuTitle, menuCal, menuPrice;
         public GridViewHolder(@NonNull View itemView){
             super(itemView);
+
 
             imgPhoto = itemView.findViewById(R.id.menu_image);
             menuTitle = itemView.findViewById(R.id.menu_title);

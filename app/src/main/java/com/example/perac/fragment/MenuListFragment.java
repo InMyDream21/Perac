@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,10 +28,14 @@ public class MenuListFragment extends Fragment {
     private RecyclerView rvMenu;
     private ArrayList<Menu> list = new ArrayList<>();
     private String title = "Mode List";
+    private SearchView svMenu;
+    private MenuListAdapter menuListAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_menu_list, container, false);
+
+
 
         ActionBar actionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
         if (actionBar != null) {
@@ -45,6 +51,20 @@ public class MenuListFragment extends Fragment {
 
         rvMenu = rootView.findViewById(R.id.menu_list_item);
         rvMenu.setHasFixedSize(true);
+        svMenu = rootView.findViewById(R.id.sv_menulist);
+        svMenu.clearFocus();
+        svMenu.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return false;
+            }
+        });
 
         list.addAll(MenuData.getListData());
         showRecyclerGrid();
@@ -52,9 +72,10 @@ public class MenuListFragment extends Fragment {
         return rootView;
     }
 
+
     private void showRecyclerGrid() {
         rvMenu.setLayoutManager(new GridLayoutManager(requireContext(), 2));
-        MenuListAdapter menuListAdapter = new MenuListAdapter(list);
+        menuListAdapter = new MenuListAdapter(list);
         rvMenu.setAdapter(menuListAdapter);
 
         menuListAdapter.setOnItemClickCallback(new MenuListAdapter.OnItemClickCallback() {
@@ -79,4 +100,24 @@ public class MenuListFragment extends Fragment {
         intent.putExtra(ItemInfoActivity.EXTRA_PERSON, mMenu);
         startActivity(intent);
     }
+
+    private void filterList(String newText) {
+        ArrayList<Menu> filteredList = new ArrayList<>();
+        for (Menu i : list){
+            if (i.getTitle().toLowerCase().contains(newText.toLowerCase())){
+                filteredList.add(i);
+
+            }
+        }
+        if (filteredList.isEmpty()) {
+            Toast.makeText(requireContext(), "No data Found", Toast.LENGTH_SHORT).show();
+        } else {
+            menuListAdapter.setFilteredList(filteredList);
+        }
+    }
+
+
+
 }
+
+
