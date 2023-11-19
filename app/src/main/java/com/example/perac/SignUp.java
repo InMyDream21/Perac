@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.perac.activities.HomepageActivity;
 import com.example.perac.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,7 +36,7 @@ public class SignUp extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent goMain = new Intent(getApplicationContext(), HomepageActivity.class);
+            Intent goMain = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(goMain);
             finish();
         }

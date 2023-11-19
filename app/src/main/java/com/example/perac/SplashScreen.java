@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.perac.activities.HomepageActivity;
-
 public class SplashScreen extends AppCompatActivity {
     private int waktu_loading = 1000;
     @Override
