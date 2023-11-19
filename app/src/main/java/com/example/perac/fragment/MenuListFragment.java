@@ -107,14 +107,13 @@ public class MenuListFragment extends Fragment {
 
     private void filterList(String newText) {
         ArrayList<Menu> filteredList = new ArrayList<>();
-        for (Menu i : list){
-            if (i.getTitle().toLowerCase().contains(newText.toLowerCase())){
-                filteredList.add(i);
+        for (Menu menuItem : list){
+            if (menuItem.getTitle().toLowerCase().contains(newText.toLowerCase())){
+                filteredList.add(menuItem);
             }
         }
 
         long currentTime = System.currentTimeMillis();
-
         if (filteredList.isEmpty()) {
             if (currentTime - lastToastTime > TOAST_DELAY) {
                 Toast.makeText(requireContext(), "No data Found", Toast.LENGTH_SHORT).show();
@@ -123,11 +122,7 @@ public class MenuListFragment extends Fragment {
         } else {
             menuListAdapter.setFilteredList(filteredList);
         }
-
     }
-
-
-
 }
 
 
