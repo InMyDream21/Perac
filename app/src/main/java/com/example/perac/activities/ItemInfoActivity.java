@@ -25,7 +25,7 @@ import java.util.Locale;
 
 public class ItemInfoActivity extends AppCompatActivity {
     public static String EXTRA_PERSON = "extra_person";
-    private TextView tvJudul, tvHarga, tvRating, tvDeskripsi, tvBack, tvAdd, tvDecrease, tvCount;
+    private TextView tvJudul, tvHarga, tvDeskripsi, tvBack, tvAdd, tvDecrease, tvCount, tvKalori, tvTotal;
     private ImageView imgMinuman;
     private Button addToCart;
     private int count = 1;
@@ -53,12 +53,14 @@ public class ItemInfoActivity extends AppCompatActivity {
         String harga = formatRupiah.format(mMenu.getPrice());
         tvHarga.setText(harga);
 
-        tvRating = findViewById(R.id.tv_rating);
-        tvRating.setText(mMenu.getRating());
-
         tvDeskripsi = findViewById(R.id.tv_deskripsi);
         tvDeskripsi.setText(mMenu.getDetail());
 
+        tvKalori = findViewById(R.id.tv_kalori);
+        tvKalori.setText(mMenu.getCalorie());
+
+        tvTotal = findViewById(R.id.tv_total);
+        tvTotal.setText(formatRupiah.format(mMenu.getPrice()));
 
         tvCount = findViewById(R.id.tv_count);
         tvCount.setText(String.valueOf(count));
@@ -80,6 +82,7 @@ public class ItemInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 count++;
                 tvCount.setText(String.valueOf(count));
+                updateTotal(mMenu.getPrice());
             }
         });
 
@@ -90,6 +93,7 @@ public class ItemInfoActivity extends AppCompatActivity {
                 if (count > 1) {
                     count--;
                     tvCount.setText(String.valueOf(count));
+                    updateTotal(mMenu.getPrice());
                 } else {
                     Toast.makeText(getApplicationContext(), "Cannot order less than 1", Toast.LENGTH_SHORT).show();
                 }
@@ -107,5 +111,11 @@ public class ItemInfoActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void updateTotal(int harga) {
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        tvTotal.setText(formatRupiah.format((long) harga * count));
     }
 }

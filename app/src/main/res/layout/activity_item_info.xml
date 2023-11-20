@@ -59,43 +59,20 @@
         app:layout_constraintTop_toBottomOf="@+id/image_minuman" />
 
     <TextView
-        android:id="@+id/tv_rating"
+        android:id="@+id/tv_kalori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4.8/5.0"
-        style="@style/textlg_bold"
+        android:text="50 kalori"
+        android:layout_marginTop="10dp"
+        style="@style/textlg_medium"
         android:textColor="@color/main"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_harga"
+        app:layout_constraintStart_toStartOf="@+id/tv_harga"
         app:layout_constraintTop_toBottomOf="@+id/tv_harga" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:src="@drawable/star_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_rating"
-        app:layout_constraintStart_toEndOf="@+id/tv_rating"
-        app:layout_constraintTop_toTopOf="@+id/tv_rating" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Best Seller"
-        style="@style/textsm_regular"
-        android:textColor="@color/main"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/tv_rating"
-        app:layout_constraintTop_toBottomOf="@+id/tv_rating" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_width="416dp"
+        android:layout_height="244dp"
         android:background="@drawable/card_background_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -132,12 +109,12 @@ Lorem ipsum dolor sit amet"
             style="@style/textbase_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:text="Quantity"
             android:textColor="@color/main"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/tv_deskripsi"
-            app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi" />
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/add_count"
@@ -179,14 +156,45 @@ Lorem ipsum dolor sit amet"
             android:paddingRight="5dp"
             android:text="-"
             android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.67"
+            app:layout_constraintHorizontal_bias="0.716"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/textView6"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.75" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/textbase_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            android:text="Total "
+            android:textColor="@color/main"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_deskripsi"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_deskripsi"
+            app:layout_constraintTop_toBottomOf="@+id/tv_deskripsi" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            style="@style/textbase_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp50.000,00"
+            android:textColor="@color/main"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.939"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/btn_add_to_cart"

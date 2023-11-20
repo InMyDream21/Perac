@@ -13,7 +13,9 @@ import com.example.perac.models.CartItem;
 import com.example.perac.models.Menu;
 import com.example.perac.models.MenuData;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class HistoryItemListAdapter extends RecyclerView.Adapter<HistoryItemListAdapter.ViewHolder> {
      List<CartItem> datalist;
@@ -37,6 +39,10 @@ public class HistoryItemListAdapter extends RecyclerView.Adapter<HistoryItemList
         Menu menu = MenuData.getDataByIndex(Integer.parseInt(data.getProductId()));
         holder.tvItemName.setText(menu.getTitle());
         holder.tvItemQty.setText("x" + data.getQuantity());
+        Locale localeID = new Locale("in", "ID");
+        NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(localeID);
+        String harga = formatRupiah.format(menu.getPrice());
+        holder.tvHargaItem.setText(harga);
     }
 
     @Override
@@ -45,13 +51,12 @@ public class HistoryItemListAdapter extends RecyclerView.Adapter<HistoryItemList
     }
 
     public class  ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvItemName, tvItemQty;
+        TextView tvItemName, tvItemQty, tvHargaItem;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvItemName = itemView.findViewById(R.id.tv_orderlist_items);
             tvItemQty = itemView.findViewById(R.id.tv_orderlist_qty);
+            tvHargaItem = itemView.findViewById(R.id.tv_harga_item);
         }
     }
-
-
 }
